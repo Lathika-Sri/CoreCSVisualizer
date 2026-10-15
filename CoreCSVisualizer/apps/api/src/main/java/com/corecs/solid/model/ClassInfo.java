@@ -1,0 +1,1 @@
+package com.corecs.solid.model; import java.util.*; public record ClassInfo(String name,String parent,boolean interfaceType,List<String> methods,List<String> fields,List<String> dependencies,List<String> interfaces,List<String> overriddenMethods,int switchStatements) {}

@@ -1,0 +1,2 @@
+package com.corecs.dbms.controller;import com.corecs.dbms.dto.QueryRequest;import com.corecs.dbms.model.QueryResult;import com.corecs.dbms.service.MiniDbService;import jakarta.validation.Valid;import org.springframework.web.bind.annotation.*;
+@RestController @RequestMapping("/api/db") public class MiniDbController{private final MiniDbService service;public MiniDbController(MiniDbService s){service=s;}@PostMapping("/query")public QueryResult query(@Valid @RequestBody QueryRequest r){return service.query(r.sql());}}

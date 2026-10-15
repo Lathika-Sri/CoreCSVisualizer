@@ -1,0 +1,2 @@
+package com.corecs.dbms.service;import com.corecs.dbms.executor.MiniQueryExecutor;import com.corecs.dbms.model.QueryResult;import com.corecs.dbms.parser.*;import org.springframework.stereotype.Service;
+@Service public class MiniDbService {private final MiniSqlTokenizer tokenizer=new MiniSqlTokenizer();private final MiniSqlParser parser=new MiniSqlParser();private final MiniQueryExecutor executor;public MiniDbService(MiniQueryExecutor e){executor=e;}public QueryResult query(String sql){var tokens=tokenizer.tokenize(sql);return executor.execute(parser.parse(tokens),tokens);}}

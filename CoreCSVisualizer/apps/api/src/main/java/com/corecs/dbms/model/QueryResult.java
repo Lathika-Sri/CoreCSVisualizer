@@ -1,0 +1,1 @@
+package com.corecs.dbms.model; import java.util.*; public record QueryResult(String message,List<String> columns,List<List<String>> rows,List<PageView> pages,List<String> tokens,List<QueryStep> steps,boolean indexUsed) {}

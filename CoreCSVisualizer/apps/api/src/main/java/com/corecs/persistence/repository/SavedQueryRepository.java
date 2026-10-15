@@ -1,0 +1,1 @@
+package com.corecs.persistence.repository;import com.corecs.persistence.model.SavedQuery;import org.springframework.data.jpa.repository.JpaRepository;public interface SavedQueryRepository extends JpaRepository<SavedQuery,Long>{}

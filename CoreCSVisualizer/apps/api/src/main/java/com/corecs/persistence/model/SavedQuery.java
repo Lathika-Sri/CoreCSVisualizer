@@ -1,0 +1,3 @@
+package com.corecs.persistence.model;
+import jakarta.persistence.*;import java.time.Instant;
+@Entity @Table(name="saved_queries") public class SavedQuery { @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private Long id; @Column(nullable=false,length=120) private String name; @Column(nullable=false,columnDefinition="TEXT") private String sqlText; @Column(nullable=false) private Instant createdAt=Instant.now(); public SavedQuery(){} public SavedQuery(String name,String sqlText){this.name=name;this.sqlText=sqlText;} public Long getId(){return id;}public String getName(){return name;}public String getSqlText(){return sqlText;}public Instant getCreatedAt(){return createdAt;} }

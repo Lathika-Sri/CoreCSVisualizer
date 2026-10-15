@@ -1,0 +1,1 @@
+export default function SectionTitle({eyebrow,title,children}:{eyebrow:string,title:string,children?:React.ReactNode}){return <div className="mb-7"><div className="text-xs uppercase tracking-[.22em] text-cyan-300">{eyebrow}</div><h1 className="mt-2 text-3xl font-bold md:text-4xl">{title}</h1>{children&&<p className="mt-3 max-w-3xl text-slate-400">{children}</p>}</div>}

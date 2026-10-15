@@ -1,0 +1,1 @@
+package com.corecs.dbms.model; import java.util.*; public record ParsedQuery(String type,String table,List<String> columns,List<List<String>> values,WhereClause where,List<String> setColumns,List<String> setValues) {}

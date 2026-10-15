@@ -1,0 +1,15 @@
+{
+  "name": "@corecs/api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "node --watch src/server.js", "start": "node src/server.js", "build": "node --check src/server.js && node --check src/routes/api.js && node --check src/services/cpu.js && node --check src/services/minidb.js && node --check src/services/solid.js" },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.5"
+  }
+}

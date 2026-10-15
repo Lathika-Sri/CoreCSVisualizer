@@ -1,0 +1,2 @@
+package com.corecs.dbms.index; import java.util.*;
+public class HashIndex { private final Map<String,Map<String,Integer>> indexes=new HashMap<>(); public void rebuild(String table,List<String> keys){var m=new HashMap<String,Integer>();for(int i=0;i<keys.size();i++)m.put(keys.get(i),i);indexes.put(table,m);} public Integer find(String table,String key){return indexes.getOrDefault(table,Map.of()).get(key);} }

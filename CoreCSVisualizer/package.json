@@ -1,0 +1,12 @@
+{
+  "name": "corecs-visualizer-mern",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": ["apps/api", "apps/web"],
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c green,cyan \"npm run dev -w @corecs/api\" \"npm run dev -w @corecs/web\"",
+    "build": "npm run build -w @corecs/api && npm run build -w @corecs/web",
+    "start": "concurrently -k -n api,web -c green,cyan \"npm run start -w @corecs/api\" \"npm run start -w @corecs/web\""
+  },
+  "devDependencies": { "concurrently": "^9.1.2" }
+}
