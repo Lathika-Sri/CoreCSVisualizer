@@ -9,7 +9,11 @@ import { executeSql } from '../services/minidb.js';
 import { analyzeJava } from '../services/solid.js';
 
 const router = Router();
-const jwtSecret = () => process.env.JWT_SECRET || 'development-only-change-me';
+const jwtSecret = () => {
+  const secret = process.env.JWT_SECRET;
+  if (!secret) throw new Error('JWT_SECRET is not configured.');
+  return secret;
+};
 const fail = (message, status = 400) => Object.assign(new Error(message), { status });
 const bearer = (req) => req.headers.authorization?.startsWith('Bearer ') ? req.headers.authorization.slice(7).trim() : '';
 const publicUser = (user, token) => ({ id: user.id, name: user.name, email: user.email, token });
