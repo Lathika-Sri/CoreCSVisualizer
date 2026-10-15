@@ -10,9 +10,13 @@ import { analyzeJava } from '../services/solid.js';
 
 const router = Router();
 const jwtSecret = () => {
-  const secret = process.env.JWT_SECRET;
-  if (!secret) throw new Error('JWT_SECRET is not configured.');
-  return secret;
+  if (process.env.JWT_SECRET) return process.env.JWT_SECRET;
+
+  if (process.env.NODE_ENV !== 'production') {
+    return 'local-only-secret-change-me';
+  }
+
+  throw new Error('JWT_SECRET is required in production.');
 };
 const fail = (message, status = 400) => Object.assign(new Error(message), { status });
 const bearer = (req) => req.headers.authorization?.startsWith('Bearer ') ? req.headers.authorization.slice(7).trim() : '';
